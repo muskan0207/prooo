@@ -1,0 +1,322 @@
+/* Birthday Project Styles */
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientWave 15s ease infinite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+@keyframes gradientWave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Particle Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 40% 40%, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 200px 200px, 300px 300px, 150px 150px;
+    animation: particleFloat 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    animation: containerFadeIn 2s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes containerFadeIn {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    color: #fff;
+    font-size: 4rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(255,255,255,0.3);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+@keyframes titleGlow {
+    0% { 
+        transform: scale(1) rotateY(0deg);
+        text-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(255,255,255,0.3);
+    }
+    100% { 
+        transform: scale(1.05) rotateY(5deg);
+        text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 60px rgba(255,255,255,0.5);
+    }
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 40px;
+    animation: subtitleSlide 2s ease-out 0.5s both;
+}
+
+@keyframes subtitleSlide {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.start-btn {
+    background: linear-gradient(45deg, #ff6b9d, #c44569, #f093fb, #f5576c);
+    background-size: 300% 300%;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 18px 60px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.4);
+    margin: 40px 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: btnPulse 2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.start-btn:hover::before {
+    left: 100%;
+}
+
+.start-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 25px 50px rgba(255, 107, 157, 0.6);
+    background-position: 100% 0;
+}
+
+@keyframes btnPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.gallery {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    animation: galleryReveal 1s ease-out;
+}
+
+@keyframes galleryReveal {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.photo {
+    text-align: center;
+    animation: photoFloat 6s ease-in-out infinite;
+    animation-delay: calc(var(--delay) * 0.2s);
+}
+
+.photo:nth-child(1) { --delay: 1; }
+.photo:nth-child(2) { --delay: 2; }
+.photo:nth-child(3) { --delay: 3; }
+.photo:nth-child(4) { --delay: 4; }
+.photo:nth-child(5) { --delay: 5; }
+.photo:nth-child(6) { --delay: 6; }
+
+@keyframes photoFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.photo img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 4px solid rgba(255,255,255,0.8);
+    position: relative;
+}
+
+.photo img:hover {
+    transform: scale(1.08) rotate(3deg) translateY(-10px);
+    box-shadow: 0 30px 60px rgba(255, 107, 157, 0.4);
+    border-color: #fff;
+}
+
+.photo p {
+    color: #fff;
+    font-weight: 600;
+    margin-top: 15px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.9), rgba(196, 69, 105, 0.9));
+    border-radius: 20px;
+    padding: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: captionSlideUp 0.8s ease-out;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+@keyframes captionSlideUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+    display: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 107, 157, 0.1));
+    border: 3px solid rgba(255, 107, 157, 0.6);
+    border-radius: 25px;
+    padding: 40px;
+    margin-top: 50px;
+    box-shadow: 0 25px 50px rgba(255, 107, 157, 0.2);
+    animation: messageReveal 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+}
+
+.message::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: messageShine 3s linear infinite;
+}
+
+@keyframes messageShine {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes messageReveal {
+    0% { 
+        opacity: 0; 
+        transform: translateY(50px) scale(0.9);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+}
+
+.floating-icon {
+    position: fixed;
+    font-size: 35px;
+    animation: floatUp 15s linear infinite;
+    z-index: 9999;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+}
+
+@keyframes floatUp {
+    0% { 
+        transform: translateY(100vh) rotate(0deg) scale(0.3);
+        opacity: 0;
+    }
+    10% { 
+        opacity: 1;
+        transform: translateY(90vh) rotate(36deg) scale(1);
+    }
+    90% { 
+        opacity: 1;
+        transform: translateY(-10vh) rotate(324deg) scale(1);
+    }
+    100% { 
+        transform: translateY(-100vh) rotate(360deg) scale(0.3);
+        opacity: 0;
+    }
+}
+
+.sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #fff, transparent);
+    border-radius: 50%;
+    animation: sparkleAdvanced 4s ease-in-out infinite;
+    z-index: 9998;
+}
+
+@keyframes sparkleAdvanced {
+    0%, 100% { 
+        opacity: 0; 
+        transform: scale(0) rotate(0deg);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.5) rotate(180deg);
+    }
+}
+
+/* Heart particles */
+.heart-particle {
+    position: fixed;
+    color: #ff6b9d;
+    font-size: 20px;
+    animation: heartFloat 8s linear infinite;
+    z-index: 9997;
+    pointer-events: none;
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(100vh) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) scale(1) rotate(0deg);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(10vh) scale(1) rotate(360deg);
+    }
+    100% {
+        transform: translateY(-10vh) scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .gallery { grid-template-columns: 1fr; }
+    .start-btn { padding: 15px 40px; font-size: 1.2rem; }
+}

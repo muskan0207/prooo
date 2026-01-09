@@ -1,0 +1,51 @@
+/* Streamlit Birthday Project Styles */
+
+/* Background: Off-white at top, fades to pink as you scroll */
+.stApp {
+    background: linear-gradient(180deg, #fffcf9 0%, #fce7f3 35%, #f9a8d4 100%);
+    background-attachment: local;
+}
+
+/* CENTER THE START BUTTON */
+div.stButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.stButton>button {
+    background: linear-gradient(90deg, #db2777, #ec4899);
+    color: white !important;
+    border-radius: 50px !important;
+    padding: 12px 45px !important;
+    font-weight: bold !important;
+    border: none !important;
+    box-shadow: 0px 4px 15px rgba(219, 39, 119, 0.4);
+}
+
+/* DARK PINK CAPTIONS FOR PHOTOS */
+.stImage div p {
+    color: #9d174d !important; 
+    font-weight: 900 !important;
+    font-size: 1.1rem !important;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* Floating Icons Animation */
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.floating-icon {
+    position: fixed; 
+    bottom: -50px; 
+    font-size: 24px;
+    animation: floatUp 10s linear infinite; 
+    z-index: 9999;
+}
