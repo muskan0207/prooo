@@ -4,6 +4,10 @@
     {
       "source": "/",
       "destination": "/src/launcher.html"
+    },
+    {
+      "source": "/celebration",
+      "destination": "/src/celebration.html"
     }
   ]
 }
