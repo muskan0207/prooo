@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Birthday Celebration</title>
+    <link rel="stylesheet" href="enhanced-styles.css">
+</head>
+<body>
+    <div class="page-container" id="landing-page">
+        <!-- Animated Background -->
+        <div class="animated-bg">
+            <div class="floating-hearts"></div>
+            <div class="sparkle-container"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            <div class="title-section">
+                <h1 class="main-title" id="animated-title"></h1>
+                <div class="subtitle">
+                    <span class="typewriter" id="subtitle-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+            </div>
+
+            <div class="celebration-card">
+                <div class="card-content">
+                    <div class="birthday-cake">🎂</div>
+                    <p class="welcome-text">Ready for an amazing birthday journey?</p>
+                    <button class="start-btn" onclick="startJourney()">
+                        <span>Begin the Magic</span>
+                        <div class="btn-sparkle"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="nav-dots">
+            <span class="dot active" onclick="showPage(0)"></span>
+            <span class="dot" onclick="showPage(1)"></span>
+            <span class="dot" onclick="showPage(2)"></span>
+            <span class="dot" onclick="showPage(3)"></span>
+        </div>
+    </div>
+
+    <!-- Photo Gallery Page -->
+    <div class="page-container hidden" id="gallery-page">
+        <div class="page-header">
+            <h2 class="page-title">✨ Beautiful Memories ✨</h2>
+            <p class="page-subtitle">Every photo tells our story</p>
+        </div>
+
+        <div class="enhanced-gallery">
+            <div class="photo-card" data-aos="zoom-in" data-delay="100">
+                <div class="photo-frame">
+                    <img src="./assets/photo1.jpg" alt="Memory 1">
+                    <div class="photo-overlay">
+                        <p class="photo-text">You're not old baby girl</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="photo-card" data-aos="zoom-in" data-delay="200">
+                <div class="photo-frame">
+                    <img src="./assets/photo2.jpg" alt="Memory 2">
+                    <div class="photo-overlay">
+                        <p class="photo-text">Today I gave you my ashirwad</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="photo-card" data-aos="zoom-in" data-delay="300">
+                <div class="photo-frame">
+                    <img src="./assets/photo3.jpg" alt="Memory 3">
+                    <div class="photo-overlay">
+                        <p class="photo-text">To the one who makes my day brighter</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="photo-card" data-aos="zoom-in" data-delay="400">
+                <div class="photo-frame">
+                    <img src="./assets/photo4.jpg" alt="Memory 4">
+                    <div class="photo-overlay">
+                        <p class="photo-text">My heart chose you</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="photo-card" data-aos="zoom-in" data-delay="500">
+                <div class="photo-frame">
+                    <img src="./assets/photo5.jpg" alt="Memory 5">
+                    <div class="photo-overlay">
+                        <p class="photo-text">Keep growing, keep smiling</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="photo-card" data-aos="zoom-in" data-delay="600">
+                <div class="photo-frame">
+                    <img src="./assets/photo6.jpg" alt="Memory 6">
+                    <div class="photo-overlay">
+                        <p class="photo-text">You and I make hilarious moments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-navigation">
+            <button class="nav-btn prev" onclick="showPage(0)">← Back</button>
+            <button class="nav-btn next" onclick="showPage(2)">Wishes →</button>
+        </div>
+    </div>
+
+    <!-- Birthday Wishes Page -->
+    <div class="page-container hidden" id="wishes-page">
+        <div class="wishes-container">
+            <div class="wishes-header">
+                <h2 class="wishes-title">💖 Special Birthday Wishes 💖</h2>
+            </div>
+            
+            <div class="wishes-content">
+                <div class="wish-card main-wish">
+                    <div class="wish-icon">🌟</div>
+                    <h3>Happy Birthday, Beautiful!</h3>
+                    <p>Today is all about celebrating you and the incredible joy you bring to my life. Your smile lights up my world, and your laughter is my favorite melody.</p>
+                </div>
+                
+                <div class="wish-card">
+                    <div class="wish-icon">💕</div>
+                    <p>Thank you for every laugh, every memory, and every moment of happiness you've given me.</p>
+                </div>
+                
+                <div class="wish-card">
+                    <div class="wish-icon">🌸</div>
+                    <p>May this new year of your life be filled with endless adventures, beautiful surprises, and all the love your heart can hold.</p>
+                </div>
+                
+                <div class="wish-card final-wish">
+                    <div class="wish-icon">✨</div>
+                    <h3>Happy Birthday, My Love!</h3>
+                    <p class="signature">With all my love and best wishes 💖🌸✨</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-navigation">
+            <button class="nav-btn prev" onclick="showPage(1)">← Gallery</button>
+            <button class="nav-btn next" onclick="showPage(3)">Surprise →</button>
+        </div>
+    </div>
+
+    <!-- Surprise Page -->
+    <div class="page-container hidden" id="surprise-page">
+        <div class="surprise-container">
+            <div class="surprise-header">
+                <h2 class="surprise-title">🎊 Special Surprise! 🎊</h2>
+            </div>
+            
+            <div class="surprise-content">
+                <div class="gift-box" onclick="openGift()">
+                    <div class="gift-lid"></div>
+                    <div class="gift-base"></div>
+                    <div class="gift-ribbon"></div>
+                    <p class="gift-text">Click to open your gift!</p>
+                </div>
+                
+                <div class="surprise-message hidden" id="surprise-message">
+                    <div class="message-card">
+                        <h3>🎁 Your Special Gift 🎁</h3>
+                        <p>A year full of beautiful moments awaits you!</p>
+                        <div class="gift-items">
+                            <div class="gift-item">🌟 Endless happiness</div>
+                            <div class="gift-item">💖 Unconditional love</div>
+                            <div class="gift-item">🌈 Colorful adventures</div>
+                            <div class="gift-item">✨ Magical memories</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-navigation">
+            <button class="nav-btn prev" onclick="showPage(2)">← Wishes</button>
+            <button class="nav-btn restart" onclick="showPage(0)">🏠 Home</button>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+        <source src="./assets/music.mp3.mpeg" type="audio/mpeg">
+    </audio>
+
+    <script src="enhanced-script.js"></script>
+</body>
+</html>
